@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Góc An Nhiên — Blog Truyền Cảm Hứng & Năng Lượng Tích Cực</title>
+
+    <!-- Tải Google Font Inter hỗ trợ đầy đủ tiếng Việt -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tải Tailwind CSS qua CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Cấu hình Tailwind tùy chỉnh bảng màu dịu nhẹ & font Inter -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    colors: {
+                        lotus: {
+                            50: '#FFF8F8',
+                            100: '#FDECEC',
+                            200: '#FAD5D8',
+                            300: '#F4B4BA',
+                            400: '#EC8B95',
+                            500: '#DF6573',
+                            600: '#C94758',
+                        },
+                        cream: {
+                            50: '#FFFDF9',
+                            100: '#FDF7ED',
+                            200: '#F7EBD6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-cream-50 text-stone-800 dark:bg-stone-950 dark:text-stone-100 antialiased selection:bg-lotus-200 selection:text-stone-900 overflow-x-hidden transition-colors duration-300">
+
+    <!-- ========================================================= -->
+    <!-- THANH THÔNG BÁO NỔI (TOAST NOTIFICATION - THAY CHO ALERT) -->
+    <!-- ========================================================= -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3 pointer-events-none max-w-xs sm:max-w-sm w-full px-4 sm:px-0"></div>
+
+    <!-- ========================================================= -->
+    <!-- THANH ĐIỀU HƯỚNG CHÍNH (STICKY GLASSMORPHIC NAVBAR)       -->
+    <!-- ========================================================= -->
+    <header class="sticky top-0 z-40 bg-cream-50/85 dark:bg-stone-950/85 backdrop-blur-md border-b border-lotus-200/60 dark:border-stone-800 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo thương hiệu cá nhân -->
+                <a href="#trang-chu" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-lotus-300 via-lotus-400 to-amber-300 flex items-center justify-center shadow-md shadow-lotus-300/40 group-hover:scale-105 transition-transform">
+                        <!-- Biểu tượng hoa sen cách điệu -->
+                        <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.5 3.5 4 6.5 4 9.5a4 4 0 11-8 0C8 9.5 9.5 6.5 12 3z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5c-3.5 0-6.5-1.8-8-4.5 2.5-.5 5 .5 6.5 2.5M12 16.5c3.5 0 6.5-1.8 8-4.5-2.5-.5-5 .5-6.5 2.5" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 19.5c2.2 1 4.6 1.5 7 1.5s4.8-.5 7-1.5" />
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg tracking-tight text-stone-800 dark:text-stone-100 leading-tight">Góc An Nhiên</span>
+                        <span class="text-xs text-lotus-600 dark:text-lotus-300 font-medium">Lan tỏa năng lượng lành</span>
+                    </div>
+                </a>
+
+                <!-- Menu điều hướng trên máy tính -->
+                <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+                    <a href="#trang-chu" class="px-3 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-lotus-600 hover:bg-lotus-50 dark:text-stone-300 dark:hover:text-lotus-300 dark:hover:bg-stone-800 transition-colors">Trang chủ</a>
+                    <a href="#thong-diep" class="px-3 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-lotus-600 hover:bg-lotus-50 dark:text-stone-300 dark:hover:text-lotus-300 dark:hover:bg-stone-800 transition-colors">Thông điệp</a>
+                    <a href="#bai-viet" class="px-3 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-lotus-600 hover:bg-lotus-50 dark:text-stone-300 dark:hover:text-lotus-300 dark:hover:bg-stone-800 transition-colors">Bài viết</a>
+                    <a href="#ve-minh" class="px-3 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-lotus-600 hover:bg-lotus-50 dark:text-stone-300 dark:hover:text-lotus-300 dark:hover:bg-stone-800 transition-colors">Về mình</a>
+                    <a href="#biet-on" class="px-3 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-lotus-600 hover:bg-lotus-50 dark:text-stone-300 dark:hover:text-lotus-300 dark:hover:bg-stone-800 transition-colors">Lọ biết ơn</a>
+                </nav>
+
+                <!-- Các nút hành động bên phải -->
+                <div class="flex items-center gap-2">
+                    <!-- Nút chuyển chế độ Sáng / Tối -->
+                    <button id="theme-toggle-btn" type="button" aria-label="Chuyển đổi giao diện Sáng/Tối" class="p-2.5 rounded-xl bg-white dark:bg-stone-900 border border-lotus-200 dark:border-stone-700 text-stone-600 dark:text-amber-300 hover:bg-lotus-50 dark:hover:bg-stone-800 shadow-sm transition-all">
+                        <!-- Icon Mặt trời (hiện ở dark mode) -->
+                        <svg id="icon-sun" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <!-- Icon Mặt trăng (hiện ở light mode) -->
+                        <svg id="icon-moon" class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+
+                    <!-- Nút mở hộp thoại viết bài mới -->
+                    <button id="open-compose-btn" type="button" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-lotus-500 to-rose-400 hover:from-lotus-600 hover:to-rose-500 text-white text-sm font-semibold shadow-md shadow-lotus-400/30 transition-all active:scale-95">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                        </svg>
+                        <span>Viết bài mới</span>
+                    </button>
+
+                    <!-- Nút mở menu trên điện thoại -->
+                    <button id="mobile-menu-btn" type="button" aria-label="Mở menu" class="md:hidden p-2.5 rounded-xl bg-white dark:bg-stone-900 border border-lotus-200 dark:border-stone-700 text-stone-700 dark:text-stone-200">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu thả xuống trên thiết bị di động -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4 pt-2 border-t border-lotus-100 dark:border-stone-800 space-y-1">
+                <a href="#trang-chu" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-200 hover:bg-lotus-50 dark:hover:bg-stone-800">Trang chủ</a>
+                <a href="#thong-diep" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-200 hover:bg-lotus-50 dark:hover:bg-stone-800">Thông điệp hôm nay</a>
+                <a href="#bai-viet" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-200 hover:bg-lotus-50 dark:hover:bg-stone-800">Bài viết truyền cảm hứng</a>
+                <a href="#ve-minh" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-200 hover:bg-lotus-50 dark:hover:bg-stone-800">Về mình</a>
+                <a href="#biet-on" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-200 hover:bg-lotus-50 dark:hover:bg-stone-800">Lọ biết ơn</a>
+                <button id="open-compose-mobile-btn" type="button" class="w-full mt-2 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-lotus-500 to-rose-400 text-white text-sm font-semibold shadow-sm">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                    <span>Viết bài truyền cảm hứng mới</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========================================================= -->
+        <!-- PHẦN 1: HERO SECTION — LỜI CHÀO & CHÂN DUNG TỎA NẮNG      -->
+        <!-- ========================================================= -->
+        <section id="trang-chu" class="relative overflow-hidden py-12 sm:py-16 lg:py-24">
+            <!-- Hiệu ứng ánh sáng dịu nhẹ phía nền -->
+            <div class="pointer-events-none absolute -top-24 -left-24 w-72 h-72 sm:w-96 sm:h-96 bg-lotus-200/50 dark:bg-lotus-600/15 rounded-full blur-3xl"></div>
+            <div class="pointer-events-none absolute top-1/2 -right-24 w-72 h-72 sm:w-96 sm:h-96 bg-amber-200/40 dark:bg-amber-600/10 rounded-full blur-3xl"></div>
+
+            <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                    <!-- Cột trái: Nội dung chào mừng -->
+                    <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 dark:bg-stone-900 border border-lotus-200 dark:border-stone-700 shadow-sm">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span id="dynamic-greeting" class="text-xs sm:text-sm font-medium text-stone-700 dark:text-stone-300">Chào bạn đến với khu vườn nhỏ của sự bình an</span>
+                        </div>
+
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-stone-900 dark:text-white leading-tight">
+                            Sống dịu dàng với chính mình,
+                            <span class="bg-gradient-to-r from-lotus-500 via-rose-400 to-amber-500 bg-clip-text text-transparent">lan tỏa năng lượng tích cực</span>
+                            mỗi ngày.
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-stone-600 dark:text-stone-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                            Chào bạn, cảm ơn vì đã ghé thăm góc nhỏ này. Nơi đây lưu giữ những câu chuyện đời thường ngọt ngào, những phút giây tĩnh lặng giữa thiên nhiên và những thông điệp tích cực giúp trái tim bạn luôn ấm áp, nhẹ nhàng và vững tin bước tiếp.
+                        </p>
+
+                        <!-- Các nút kêu gọi hành động -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+                            <a href="#bai-viet" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-lotus-500 to-rose-400 hover:from-lotus-600 hover:to-rose-500 text-white font-semibold shadow-lg shadow-lotus-400/30 transition-all hover:-translate-y-0.5">
+                                <span>Khám phá bài viết</span>
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                </svg>
+                            </a>
+                            <a href="#thong-diep" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-white dark:bg-stone-900 hover:bg-lotus-50 dark:hover:bg-stone-800 text-stone-800 dark:text-stone-100 font-semibold border border-lotus-200 dark:border-stone-700 shadow-sm transition-all hover:-translate-y-0.5">
+                                <span>✨ Rút thông điệp hôm nay</span>
+                            </a>
+                        </div>
+
+                        <!-- 3 giá trị cốt lõi -->
+                        <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-4 max-w-lg mx-auto lg:mx-0">
+                            <div class="p-3 sm:p-4 rounded-2xl bg-white/80 dark:bg-stone-900/80 border border-lotus-100 dark:border-stone-800 shadow-sm text-center">
+                                <div class="text-xl sm:text-2xl mb-1">🌸</div>
+                                <div class="text-xs sm:text-sm font-bold text-stone-800 dark:text-stone-100">Bình An</div>
+                                <div class="text-[11px] sm:text-xs text-stone-500 dark:text-stone-400">Từ trong tâm</div>
+                            </div>
+                            <div class="p-3 sm:p-4 rounded-2xl bg-white/80 dark:bg-stone-900/80 border border-amber-100 dark:border-stone-800 shadow-sm text-center">
+                                <div class="text-xl sm:text-2xl mb-1">☀️</div>
+                                <div class="text-xs sm:text-sm font-bold text-stone-800 dark:text-stone-100">Tích Cực</div>
+                                <div class="text-[11px] sm:text-xs text-stone-500 dark:text-stone-400">Mỗi ban mai</div>
+                            </div>
+                            <div class="p-3 sm:p-4 rounded-2xl bg-white/80 dark:bg-stone-900/80 border border-emerald-100 dark:border-stone-800 shadow-sm text-center">
+                                <div class="text-xl sm:text-2xl mb-1">🌿</div>
+                                <div class="text-xs sm:text-sm font-bold text-stone-800 dark:text-stone-100">Biết Ơn</div>
+                                <div class="text-[11px] sm:text-xs text-stone-500 dark:text-stone-400">Điều giản dị</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cột phải: Khung ảnh chân dung chính của tác giả -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-sm sm:max-w-md">
+                            <!-- Khung trang trí phía sau -->
+                            <div class="absolute inset-0 translate-x-3 translate-y-3 rounded-[2rem] bg-gradient-to-br from-lotus-200 via-amber-100 to-emerald-100 dark:from-lotus-600/30 dark:via-amber-500/20 dark:to-emerald-600/20"></div>
+
+                            <!-- Thẻ ảnh chính -->
+                            <div class="relative rounded-[2rem] overflow-hidden bg-white dark:bg-stone-900 p-2.5 shadow-xl shadow-lotus-300/25 border border-white dark:border-stone-800">
+                                <div class="relative rounded-[1.5rem] overflow-hidden aspect-[3/4] bg-lotus-50 dark:bg-stone-800 group">
+                                    <!--
+                                        Ảnh chân dung chính: Tự động hiển thị file ảnh của bạn khi đặt cùng thư mục.
+                                        Nếu xem trước online, bạn có thể bấm nút "Chọn ảnh của bạn" ở góc phải dưới để xem ngay.
+                                    -->
+                                    <img
+                                        id="hero-photo"
+                                        src="z6409931448424_63efeaafc54c8f200c6383c1e8f268fa.jpg"
+                                        alt="Chân dung tác giả nụ cười rạng rỡ trong trang phục hồng phấn dịu dàng"
+                                        class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                                        onerror="this.onerror=null; this.src='https://placehold.co/600x800/FDECEC/C94758?text=Anh+Chan+Dung+Cua+Ban%0A(Bam+nut+Chon+Anh+ben+duoi)';"
+                                    />
+
+                                    <!-- Nhãn nhỏ nổi ở góc trên -->
+                                    <div class="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-white/90 dark:bg-stone-900/85 backdrop-blur-sm shadow-sm flex items-center gap-1.5">
+                                        <span class="text-sm">🌷</span>
+                                        <span class="text-xs font-semibold text-stone-700 dark:text-stone-200">Nụ cười là khởi đầu bình an</span>
+                                    </div>
+
+                                    <!-- Nút tải ảnh nhanh trực tiếp trên khung để xem ngay trong trình duyệt -->
+                                    <label for="hero-photo-upload" class="cursor-pointer absolute bottom-3 right-3 px-3 py-2 rounded-xl bg-stone-900/75 hover:bg-stone-900 text-white text-xs font-medium backdrop-blur-md shadow-md flex items-center gap-1.5 transition-all">
+                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <span>Chọn ảnh</span>
+                                    </label>
+                                    <input id="hero-photo-upload" type="file" accept="image/*" class="hidden" />
+                                </div>
+                            </div>
+
+                            <!-- Thẻ năng lượng nhỏ nổi bên dưới -->
+                            <div class="absolute -bottom-5 -left-3 sm:-left-6 bg-white dark:bg-stone-900 border border-lotus-100 dark:border-stone-700 rounded-2xl p-3.5 shadow-lg flex items-center gap-3 max-w-[230px]">
+                                <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center text-xl shrink-0">✨</div>
+                                <div>
+                                    <div class="text-xs font-bold text-stone-800 dark:text-stone-100">Hôm nay bạn thế nào?</div>
+                                    <div class="text-[11px] text-stone-500 dark:text-stone-400">Hãy hít sâu & mỉm cười nhé!</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- PHẦN 2: THÔNG ĐIỆP NĂNG LƯỢNG & 1 PHÚT THỞ BÌNH AN        -->
+        <!-- ========================================================= -->
+        <section id="thong-diep" class="py-12 sm:py-16 bg-gradient-to-b from-lotus-50/80 to-cream-50 dark:from-stone-900/60 dark:to-stone-950 border-y border-lotus-100/80 dark:border-stone-800/80">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
+                    <!-- Thẻ rút thông điệp tích cực mỗi ngày -->
+                    <div class="lg:col-span-7 bg-white dark:bg-stone-900 rounded-3xl p-6 sm:p-8 shadow-md shadow-lotus-200/30 dark:shadow-none border border-lotus-100 dark:border-stone-800 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between flex-wrap gap-2 mb-5">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-xs font-semibold border border-amber-200/60 dark:border-amber-700/40">
+                                    <span>🌟</span> Thông điệp năng lượng hôm nay
+                                </span>
+                                <span id="quote-number" class="text-xs font-medium text-stone-400 dark:text-stone-500">Thẻ số #01</span>
+                            </div>
+
+                            <!-- Nội dung câu trích dẫn -->
+                            <div id="quote-box" class="py-4 sm:py-6 transition-opacity duration-300">
+                                <blockquote id="daily-quote-text" class="text-xl sm:text-2xl font-semibold text-stone-800 dark:text-stone-100 leading-relaxed">
+                                    “Khi tâm bạn bình an, mọi cơn gió đi qua đều trở thành làn hương dịu nhẹ. Hôm nay, hãy cho phép mình bước đi thật chậm và tận hưởng từng khoảnh khắc ngọt ngào.”
+                                </blockquote>
+                                <p id="daily-quote-sub" class="mt-3 text-sm text-lotus-600 dark:text-lotus-300 font-medium">
+                                    — Gửi bạn một cái ôm ấm áp từ Góc An Nhiên
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Các nút tương tác cho thẻ thông điệp -->
+                        <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-lotus-100 dark:border-stone-800">
+                            <button id="new-quote-btn" type="button" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-lotus-500 to-rose-400 hover:from-lotus-600 hover:to-rose-500 text-white text-sm font-semibold shadow-sm transition-all active:scale-95">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                                <span>Rút thông điệp mới</span>
+                            </button>
+
+                            <button id="copy-quote-btn" type="button" class="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-cream-100 dark:bg-stone-800 hover:bg-lotus-100 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-200 text-sm font-medium transition-colors">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                </svg>
+                                <span>Sao chép</span>
+                            </button>
+
+                            <button id="heart-quote-btn" type="button" class="ml-auto inline-flex items-center gap-1.5 px-4 py-3 rounded-2xl bg-lotus-50 dark:bg-stone-800 hover:bg-lotus-100 dark:hover:bg-stone-700 text-lotus-600 dark:text-lotus-300 text-sm font-semibold transition-all active:scale-95">
+                                <span>❤️</span>
+                                <span id="heart-quote-count">128</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tiện ích 1 phút hít thở thư giãn (Chánh niệm) -->
+                    <div class="lg:col-span-5 bg-gradient-to-br from-emerald-50 via-white to-lotus-50 dark:from-stone-900 dark:via-stone-900 dark:to-emerald-950/30 rounded-3xl p-6 sm:p-8 shadow-md shadow-emerald-100/40 dark:shadow-none border border-emerald-100 dark:border-stone-800 flex flex-col items-center justify-between text-center">
+                        <div class="w-full">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100/80 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-xs font-semibold">
+                                <span>🍃</span> Góc Thở Bình An
+                            </span>
+                            <h2 class="mt-3 text-lg font-bold text-stone-800 dark:text-stone-100">Thả lỏng vai trong 1 phút</h2>
+                            <p class="text-xs sm:text-sm text-stone-500 dark:text-stone-400 mt-1">Hít vào sự bình yên, thở ra mọi lo âu</p>
+                        </div>
+
+                        <!-- Vòng tròn mô phỏng nhịp thở 4-4-4 -->
+                        <div class="my-6 relative flex items-center justify-center w-36 h-36">
+                            <div id="breath-ring-outer" class="absolute inset-0 rounded-full bg-emerald-200/40 dark:bg-emerald-500/20 transition-transform duration-[4000ms] ease-in-out scale-75"></div>
+                            <div id="breath-ring-inner" class="relative w-24 h-24 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 shadow-lg shadow-emerald-300/40 flex flex-col items-center justify-center text-white transition-transform duration-[4000ms] ease-in-out scale-90">
+                                <span id="breath-label" class="text-sm font-bold tracking-wide">Sẵn sàng</span>
+                                <span id="breath-timer" class="text-xs opacity-90 mt-0.5">4 - 4 - 4</span>
+                            </div>
+                        </div>
+
+                        <button id="toggle-breath-btn" type="button" class="w-full py-3 px-5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold shadow-sm transition-all active:scale-95">
+                            Bắt đầu hít thở cùng mình
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- PHẦN 3: DANH SÁCH BÀI VIẾT BLOG TRUYỀN CẢM HỨNG           -->
+        <!-- ========================================================= -->
+        <section id="bai-viet" class="py-16 sm:py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Tiêu đề mục bài viết -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-lotus-600 dark:text-lotus-400">Nhật ký cảm hứng</span>
+                        <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white">Những câu chuyện ươm mầm tích cực</h2>
+                        <p class="mt-2 text-sm sm:text-base text-stone-600 dark:text-stone-400">Mỗi bài viết là một tách trà ấm, giúp bạn tìm lại niềm vui từ những điều nhỏ bé.</p>
+                    </div>
+
+                    <!-- Ô tìm kiếm bài viết -->
+                    <div class="relative w-full md:w-72">
+                        <input
+                            id="search-posts-input"
+                            type="text"
+                            placeholder="Tìm bài viết bạn muốn đọc..."
+                            class="w-full pl-10 pr-4 py-3 rounded-2xl bg-white dark:bg-stone-900 border border-lotus-200 dark:border-stone-700 text-sm text-stone-800 dark:text-stone-100 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-lotus-400 transition-all"
+                        />
+                        <svg class="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Bộ lọc chủ đề -->
+                <div id="category-filters" class="flex flex-wrap items-center gap-2 mb-8">
+                    <button type="button" data-category="Tất cả" class="category-pill px-4 py-2 rounded-full text-sm font-semibold bg-lotus-500 text-white shadow-sm transition-all">Tất cả</button>
+                    <button type="button" data-category="Sống An Nhiên" class="category-pill px-4 py-2 rounded-full text-sm font-medium bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-300 border border-lotus-200 dark:border-stone-700 hover:bg-lotus-50 dark:hover:bg-stone-800 transition-all">Sống An Nhiên</button>
+                    <button type="button" data-category="Chữa Lành" class="category-pill px-4 py-2 rounded-full text-sm font-medium bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-300 border border-lotus-200 dark:border-stone-700 hover:bg-lotus-50 dark:hover:bg-stone-800 transition-all">Chữa Lành</button>
+                    <button type="button" data-category="Thói Quen Tốt" class="category-pill px-4 py-2 rounded-full text-sm font-medium bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-300 border border-lotus-200 dark:border-stone-700 hover:bg-lotus-50 dark:hover:bg-stone-800 transition-all">Thói Quen Tốt</button>
+                    <button type="button" data-category="Biết Ơn" class="category-pill px-4 py-2 rounded-full text-sm font-medium bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-300 border border-lotus-200 dark:border-stone-700 hover:bg-lotus-50 dark:hover:bg-stone-800 transition-all">Biết Ơn</button>
+                </div>
+
+                <!-- Lưới hiển thị các bài viết (được render động bằng JS) -->
+                <div id="posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"></div>
+
+                <!-- Trạng thái rỗng khi tìm không thấy -->
+                <div id="posts-empty" class="hidden text-center py-12 bg-white dark:bg-stone-900 rounded-3xl border border-lotus-100 dark:border-stone-800">
+                    <div class="text-4xl mb-3">🌸</div>
+                    <h3 class="text-lg font-bold text-stone-800 dark:text-stone-100">Chưa tìm thấy bài viết phù hợp</h3>
+                    <p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Bạn thử tìm với từ khóa khác hoặc viết thêm câu chuyện mới nhé!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- PHẦN 4: VỀ MÌNH — HÀNH TRÌNH TÌM THẤY BÌNH AN             -->
+        <!-- ========================================================= -->
+        <section id="ve-minh" class="py-16 sm:py-20 bg-white dark:bg-stone-900/60 border-y border-lotus-100 dark:border-stone-800">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                    <!-- Cột ảnh thứ 2 (cảnh chùa mái vàng trang nghiêm & dịu dàng) -->
+                    <div class="lg:col-span-5 order-2 lg:order-1 flex justify-center">
+                        <div class="relative w-full max-w-sm sm:max-w-md">
+                            <div class="absolute -inset-2 rounded-[2.2rem] bg-gradient-to-tr from-amber-200/60 via-lotus-200/50 to-transparent dark:from-amber-700/20 dark:via-lotus-700/20 blur-sm"></div>
+                            <div class="relative rounded-[2rem] overflow-hidden bg-cream-50 dark:bg-stone-900 p-2.5 shadow-xl border border-lotus-100 dark:border-stone-700">
+                                <div class="relative rounded-[1.5rem] overflow-hidden aspect-[3/4] bg-amber-50 dark:bg-stone-800 group">
+                                    <!--
+                                        Ảnh thứ 2 của bạn: Tương thích tự động nếu lưu cùng thư mục với file ảnh,
+                                        kèm nút "Chọn ảnh" để xem ngay trong trình duyệt.
+                                    -->
+                                    <img
+                                        id="about-photo"
+                                        src="z6409931443170_63e5d73ed12c5213e03ca93f0352be4b.jpg"
+                                        alt="Khoảnh khắc an nhiên bên ngôi chùa mái vàng thanh tịnh"
+                                        class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                                        onerror="this.onerror=null; this.src='https://placehold.co/600x800/FDF7ED/B45309?text=Anh+An+Nhien+Tai+Chua%0A(Bam+nut+Chon+Anh+ben+duoi)';"
+                                    />
+
+                                    <!-- Nút chọn ảnh nhanh -->
+                                    <label for="about-photo-upload" class="cursor-pointer absolute bottom-3 right-3 px-3 py-2 rounded-xl bg-stone-900/75 hover:bg-stone-900 text-white text-xs font-medium backdrop-blur-md shadow-md flex items-center gap-1.5 transition-all">
+                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <span>Chọn ảnh</span>
+                                    </label>
+                                    <input id="about-photo-upload" type="file" accept="image/*" class="hidden" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cột nội dung giới thiệu bản thân -->
+                    <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+                        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-lotus-50 dark:bg-lotus-900/30 text-lotus-600 dark:text-lotus-300 text-xs font-bold uppercase tracking-wider">
+                            ✨ Đôi lời về mình
+                        </span>
+
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-stone-900 dark:text-white leading-snug">
+                            Mình tin rằng: Một trái tim tử tế và lạc quan có thể sưởi ấm cả một ngày dài.
+                        </h2>
+
+                        <div class="space-y-4 text-stone-600 dark:text-stone-300 text-base leading-relaxed">
+                            <p>
+                                Mình yêu những buổi sáng trong lành, yêu tiếng chuông chùa thanh tịnh giữa hàng cây xanh mát, và yêu cả những câu chuyện giản dị mà chân thành trong cuộc sống thường nhật.
+                            </p>
+                            <p>
+                                Trước đây, cũng có lúc mình từng cuốn vào nhịp sống vội vã và lo âu. Nhưng khi học cách dừng lại, lắng nghe hơi thở của chính mình và ghi chép lại những điều biết ơn mỗi ngày, mình nhận ra hạnh phúc vốn chẳng ở đâu xa — nó nằm ngay trong cách mình mỉm cười đón nhận hiện tại.
+                            </p>
+                            <p>
+                                Blog <strong class="text-lotus-600 dark:text-lotus-300">Góc An Nhiên</strong> ra đời như một cuốn nhật ký mở, nơi mình lưu giữ những khoảnh khắc đẹp và gửi tặng bạn một chút năng lượng tích cực mỗi khi bạn cần tiếp thêm động lực.
+                            </p>
+                        </div>
+
+                        <!-- 3 nguyên tắc sống đẹp -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                            <div class="p-4 rounded-2xl bg-cream-50 dark:bg-stone-800/80 border border-lotus-100 dark:border-stone-700">
+                                <div class="text-lg font-bold text-lotus-600 dark:text-lotus-300 mb-1">01. Lắng nghe</div>
+                                <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Thấu hiểu cảm xúc bên trong và bao dung với những ngày chưa trọn vẹn.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-cream-50 dark:bg-stone-800/80 border border-amber-100 dark:border-stone-700">
+                                <div class="text-lg font-bold text-amber-600 dark:text-amber-300 mb-1">02. Biết ơn</div>
+                                <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Trân trọng từng người mình gặp, từng bữa cơm ấm và từng tia nắng mai.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-cream-50 dark:bg-stone-800/80 border border-emerald-100 dark:border-stone-700">
+                                <div class="text-lg font-bold text-emerald-600 dark:text-emerald-300 mb-1">03. Lan tỏa</div>
+                                <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Gieo một lời khen, một nụ cười để niềm vui được nhân đôi mỗi ngày.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- PHẦN 5: LỌ BIẾT ƠN MỖI NGÀY (INTERACTIVE GRATITUDE BOARD) -->
+        <!-- ========================================================= -->
+        <section id="biet-on" class="py-16 sm:py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-xs font-bold uppercase tracking-wider">
+                        💛 Thực hành hạnh phúc
+                    </span>
+                    <h2 class="mt-3 text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white">Lọ Biết Ơn Mỗi Ngày</h2>
+                    <p class="mt-2 text-sm sm:text-base text-stone-600 dark:text-stone-400">
+                        Hôm nay có điều gì nho nhỏ khiến bạn mỉm cười? Hãy viết xuống và thả vào lọ để nuôi dưỡng nguồn năng lượng biết ơn nhé!
+                    </p>
+                </div>
+
+                <!-- Form thêm điều biết ơn mới -->
+                <form id="gratitude-form" class="max-w-2xl mx-auto mb-10 flex flex-col sm:flex-row gap-3">
+                    <input
+                        id="gratitude-input"
+                        type="text"
+                        maxlength="160"
+                        placeholder="Ví dụ: Biết ơn tách trà ấm sáng nay và nụ cười của người thân..."
+                        class="flex-1 px-5 py-3.5 rounded-2xl bg-white dark:bg-stone-900 border border-lotus-200 dark:border-stone-700 text-sm text-stone-800 dark:text-stone-100 placeholder-stone-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-lotus-400"
+                        required
+                    />
+                    <button type="submit" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-lotus-500 hover:from-amber-600 hover:to-lotus-600 text-white text-sm font-semibold shadow-md transition-all active:scale-95 shrink-0">
+                        ✨ Thả vào lọ
+                    </button>
+                </form>
+
+                <!-- Bảng các mẩu giấy biết ơn -->
+                <div id="gratitude-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"></div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- PHẦN 6: GỬI LỜI NHẮN KẾT NỐI & ĐĂNG KÝ NHẬN THƯ TÍCH CỰC  -->
+        <!-- ========================================================= -->
+        <section id="ket-noi" class="py-12 sm:py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-lotus-500 via-rose-400 to-amber-400 p-8 sm:p-12 text-white shadow-xl shadow-lotus-300/40">
+                    <!-- Trang trí vòng tròn mờ -->
+                    <div class="pointer-events-none absolute -top-16 -right-16 w-56 h-56 rounded-full bg-white/15 blur-2xl"></div>
+                    <div class="pointer-events-none absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-amber-200/20 blur-2xl"></div>
+
+                    <div class="relative text-center max-w-xl mx-auto space-y-4">
+                        <div class="text-3xl">💌</div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Nhận thư năng lượng tích cực mỗi cuối tuần</h2>
+                        <p class="text-sm sm:text-base text-white/90">
+                            Để lại email hoặc lời nhắn của bạn, mình sẽ gửi đến bạn những bài viết dịu dàng giúp khởi đầu tuần mới thật rạng rỡ.
+                        </p>
+
+                        <form id="newsletter-form" class="pt-3 flex flex-col sm:flex-row gap-3">
+                            <input
+                                id="newsletter-email"
+                                type="email"
+                                required
+                                placeholder="Nhập địa chỉ email của bạn..."
+                                class="flex-1 px-5 py-3.5 rounded-2xl bg-white/95 text-stone-800 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-white shadow-sm"
+                            />
+                            <button type="submit" class="px-6 py-3.5 rounded-2xl bg-stone-900 hover:bg-stone-800 text-white text-sm font-semibold shadow-md transition-all active:scale-95 shrink-0">
+                                Kết nối ngay
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- CHÂN TRANG (FOOTER)                                       -->
+    <!-- ========================================================= -->
+    <footer class="border-t border-lotus-200/60 dark:border-stone-800 py-10 bg-cream-50 dark:bg-stone-950">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div>
+                <div class="font-bold text-stone-800 dark:text-stone-100">Góc An Nhiên 🌸</div>
+                <p class="text-xs text-stone-500 dark:text-stone-400 mt-1">Viết bằng cả trái tim, dành tặng những tâm hồn yêu sự bình yên.</p>
+            </div>
+            <div class="flex items-center gap-4 text-xs font-medium text-stone-500 dark:text-stone-400">
+                <a href="#trang-chu" class="hover:text-lotus-600 dark:hover:text-lotus-300 transition-colors">Lên đầu trang ↑</a>
+                <span>•</span>
+                <span>© <span id="current-year"></span> Blog Cá Nhân Truyền Cảm Hứng</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================================= -->
+    <!-- MODAL 1: ĐỌC CHI TIẾT BÀI VIẾT & BÌNH LUẬN                -->
+    <!-- ========================================================= -->
+    <div id="article-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-stone-950/60 backdrop-blur-sm p-3 sm:p-6 flex items-center justify-center">
+        <div class="relative w-full max-w-3xl bg-white dark:bg-stone-900 rounded-3xl shadow-2xl border border-lotus-100 dark:border-stone-800 overflow-hidden my-auto max-h-[90vh] flex flex-col">
+            <!-- Header Modal -->
+            <div class="flex items-center justify-between px-6 py-4 border-b border-lotus-100 dark:border-stone-800 bg-cream-50/70 dark:bg-stone-900">
+                <span id="modal-article-category" class="px-3 py-1 rounded-full bg-lotus-100 dark:bg-lotus-900/40 text-lotus-600 dark:text-lotus-300 text-xs font-semibold"></span>
+                <button id="close-article-modal" type="button" aria-label="Đóng bài viết" class="p-2 rounded-xl hover:bg-lotus-100 dark:hover:bg-stone-800 text-stone-500 dark:text-stone-400 transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Nội dung bài viết cuộn được -->
+            <div class="overflow-y-auto p-6 sm:p-8 space-y-6">
+                <div>
+                    <h3 id="modal-article-title" class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white leading-snug"></h3>
+                    <div class="mt-3 flex flex-wrap items-center gap-3 text-xs text-stone-500 dark:text-stone-400">
+                        <span id="modal-article-date"></span>
+                        <span>•</span>
+                        <span id="modal-article-readtime"></span>
+                    </div>
+                </div>
+
+                <!-- Banner biểu tượng / hình ảnh của bài viết -->
+                <div id="modal-article-banner" class="rounded-2xl overflow-hidden"></div>
+
+                <!-- Các đoạn văn chi tiết -->
+                <div id="modal-article-content" class="space-y-4 text-stone-700 dark:text-stone-300 leading-relaxed text-base"></div>
+
+                <!-- Thanh tương tác Thích & Chia sẻ -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pt-5 border-t border-lotus-100 dark:border-stone-800">
+                    <button id="modal-like-btn" type="button" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-lotus-50 dark:bg-stone-800 hover:bg-lotus-100 dark:hover:bg-stone-700 text-lotus-600 dark:text-lotus-300 text-sm font-semibold transition-all active:scale-95">
+                        <span>❤️</span>
+                        <span>Thả tim yêu thích</span>
+                        <span id="modal-like-count" class="px-2 py-0.5 rounded-full bg-white dark:bg-stone-900 text-xs">0</span>
+                    </button>
+
+                    <button id="modal-share-btn" type="button" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-cream-100 dark:bg-stone-800 hover:bg-amber-100 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-200 text-sm font-medium transition-colors">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                        </svg>
+                        <span>Sao chép trích dẫn bài viết</span>
+                    </button>
+                </div>
+
+                <!-- Khu vực bình luận ấm áp -->
+                <div class="pt-5 border-t border-lotus-100 dark:border-stone-800 space-y-4">
+                    <h4 class="font-bold text-stone-800 dark:text-stone-100 text-sm">Gửi lời nhắn ấm áp cho bài viết này</h4>
+                    <form id="comment-form" class="flex flex-col sm:flex-row gap-2.5">
+                        <input id="comment-author" type="text" placeholder="Tên của bạn" required class="sm:w-1/3 px-4 py-2.5 rounded-xl bg-cream-50 dark:bg-stone-800 border border-lotus-200 dark:border-stone-700 text-sm focus:outline-none focus:ring-2 focus:ring-lotus-400" />
+                        <input id="comment-text" type="text" placeholder="Chia sẻ cảm nhận của bạn..." required class="flex-1 px-4 py-2.5 rounded-xl bg-cream-50 dark:bg-stone-800 border border-lotus-200 dark:border-stone-700 text-sm focus:outline-none focus:ring-2 focus:ring-lotus-400" />
+                        <button type="submit" class="px-5 py-2.5 rounded-xl bg-lotus-500 hover:bg-lotus-600 text-white text-sm font-semibold transition-colors">Gửi</button>
+                    </form>
+                    <div id="modal-comments-list" class="space-y-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL 2: VIẾT BÀI BLOG MỚI (LƯU TRỰC TIẾP TRONG TRÌNH DUYỆT) -->
+    <!-- ========================================================= -->
+    <div id="compose-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-stone-950/60 backdrop-blur-sm p-3 sm:p-6 flex items-center justify-center">
+        <div class="relative w-full max-w-xl bg-white dark:bg-stone-900 rounded-3xl shadow-2xl border border-lotus-100 dark:border-stone-800 overflow-hidden my-auto">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-lotus-100 dark:border-stone-800 bg-cream-50/70 dark:bg-stone-900">
+                <h3 class="font-bold text-lg text-stone-800 dark:text-stone-100">✍️ Viết bài truyền cảm hứng mới</h3>
+                <button id="close-compose-modal" type="button" aria-label="Đóng hộp thoại" class="p-2 rounded-xl hover:bg-lotus-100 dark:hover:bg-stone-800 text-stone-500">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <form id="compose-form" class="p-6 space-y-4">
+                <div>
+                    <label for="post-title-input" class="block text-xs font-semibold text-stone-600 dark:text-stone-300 mb-1.5">Tiêu đề bài viết</label>
+                    <input id="post-title-input" type="text" required placeholder="Ví dụ: Học cách mỉm cười trước những ngày mưa..." class="w-full px-4 py-3 rounded-2xl bg-cream-50 dark:bg-stone-800 border border-lotus-200 dark:border-stone-700 text-sm focus:outline-none focus:ring-2 focus:ring-lotus-400" />
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="post-category-input" class="block text-xs font-semibold text-stone-600 dark:text-stone-300 mb-1.5">Chủ đề</label>
+                        <select id="post-category-input" class="w-full px-4 py-3 rounded-2xl bg-cream-50 dark:bg-stone-800 border border-lotus-200 dark:border-stone-700 text-sm focus:outline-none focus:ring-2 focus:ring-lotus-400">
+                            <option value="Sống An Nhiên">Sống An Nhiên</option>
+                            <option value="Chữa Lành">Chữa Lành</option>
+                            <option value="Thói Quen Tốt">Thói Quen Tốt</option>
+                            <option value="Biết Ơn">Biết Ơn</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="post-emoji-input" class="block text-xs font-semibold text-stone-600 dark:text-stone-300 mb-1.5">Biểu tượng cảm xúc</label>
+                        <select id="post-emoji-input" class="w-full px-4 py-3 rounded-2xl bg-cream-50 dark:bg-stone-800 border border-lotus-200 dark:border-stone-700 text-sm focus:outline-none focus:ring-2 focus:ring-lotus-400">
+                            <option value="🌸">🌸 Hoa Sen Dịu Dàng</option>
+                            <option value="☀️">☀️ Nắng Mai Rạng Rỡ</option>
+                            <option value="🌿">🌿 Thiên Nhiên An Lành</option>
+                            <option value="🍵">🍵 Tách Trà Tĩnh Lặng</option>
+                            <option value="💛">💛 Trái Tim Ấm Áp</option>
+                            <option value="🦋">🦋 Chữa Lành & Tự Do</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="post-content-input" class="block text-xs font-semibold text-stone-600 dark:text-stone-300 mb-1.5">Nội dung chia sẻ</label>
+                    <textarea id="post-content-input" rows="5" required placeholder="Viết những dòng tâm sự tích cực của bạn tại đây (xuống dòng để tách đoạn)..." class="w-full px-4 py-3 rounded-2xl bg-cream-50 dark:bg-stone-800 border border-lotus-200 dark:border-stone-700 text-sm focus:outline-none focus:ring-2 focus:ring-lotus-400"></textarea>
+                </div>
+
+                <div class="flex items-center justify-end gap-3 pt-2">
+                    <button id="cancel-compose-btn" type="button" class="px-5 py-2.5 rounded-2xl bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-sm font-medium hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors">Hủy</button>
+                    <button type="submit" class="px-6 py-2.5 rounded-2xl bg-gradient-to-r from-lotus-500 to-rose-400 hover:from-lotus-600 hover:to-rose-500 text-white text-sm font-semibold shadow-md transition-all active:scale-95">Đăng bài ngay ✨</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- JAVASCRIPT: LOGIC TƯƠNG TÁC, LƯU TRỮ & TẢI ẢNH            -->
+    <!-- ========================================================= -->
+    <script>
+        (function () {
+            'use strict';
+
+            /* ---------------------------------------------------------
+             * 1. DỮ LIỆU MẪU: THÔNG ĐIỆP NĂNG LƯỢNG, BÀI VIẾT, BIẾT ƠN
+             * --------------------------------------------------------- */
+            const POSITIVE_QUOTES = [
+                {
+                    text: "“Khi tâm bạn bình an, mọi cơn gió đi qua đều trở thành làn hương dịu nhẹ. Hôm nay, hãy cho phép mình bước đi thật chậm và tận hưởng từng khoảnh khắc ngọt ngào.”",
+                    sub: "— Gửi bạn một cái ôm ấm áp từ Góc An Nhiên"
+                },
+                {
+                    text: "“Bạn không cần phải hoàn hảo để xứng đáng được yêu thương. Chính nụ cười chân thành và sự tử tế hằng ngày đã khiến bạn tỏa sáng theo cách riêng nhất.”",
+                    sub: "— Hãy luôn dịu dàng với chính mình nhé"
+                },
+                {
+                    text: "“Mỗi buổi sáng thức dậy là một trang giấy mới tinh khôi. Hãy viết lên đó một lời biết ơn, một niềm hy vọng và thật nhiều năng lượng lành.”",
+                    sub: "— Khởi đầu ngày mới rạng rỡ"
+                },
+                {
+                    text: "“Đừng vội buồn nếu hoa của bạn nở muộn hơn một chút. Những bông hoa đẹp nhất luôn cần đủ nắng, đủ mưa và đủ thời gian để tỏa hương.”",
+                    sub: "— Tin tưởng vào hành trình của riêng bạn"
+                },
+                {
+                    text: "“Hạnh phúc không phải là đích đến ở cuối con đường, mà là cảm giác bình yên khi ta biết trân trọng tách trà ấm, cơn gió mát và người thân bên cạnh ngay lúc này.”",
+                    sub: "— Sống trọn vẹn trong từng phút giây hiện tại"
+                },
+                {
+                    text: "“Khi bạn chọn lan tỏa yêu thương và suy nghĩ tích cực, vũ trụ sẽ âm thầm gửi lại cho bạn những điều tốt đẹp và những cuộc gặp gỡ thật dịu dàng.”",
+                    sub: "— Năng lượng lành luôn tìm về nơi bình yên"
+                },
+                {
+                    text: "“Có những ngày mây phủ kín trời, nhưng mặt trời vẫn luôn ở đó. Đừng quên rằng sau mỗi thử thách, trái tim bạn lại càng thêm vững vàng và bao dung hơn.”",
+                    sub: "— Luôn hướng về phía ánh sáng"
+                }
+            ];
+
+            const DEFAULT_POSTS = [
+                {
+                    id: "post-1",
+                    title: "Một buổi sáng đi lễ chùa và bài học về sự tĩnh lặng",
+                    category: "Sống An Nhiên",
+                    emoji: "🌸",
+                    gradient: "from-lotus-100 via-rose-50 to-amber-50 dark:from-lotus-900/40 dark:to-stone-800",
+                    date: "18 Tháng 11, 2026",
+                    readTime: "3 phút đọc",
+                    likes: 42,
+                    excerpt: "Giữa nhịp sống hối hả, có một buổi sáng khoác lên mình bộ áo màu hồng phấn nhẹ nhàng, đứng trước mái chùa vàng dưới tán cây xanh và chợt thấy lòng nhẹ tênh...",
+                    content: [
+                        "Có bao giờ bạn thấy tâm trí mình giống như một mặt hồ gợn sóng liên tục vì hàng trăm suy nghĩ về công việc, dự định và những lo toan chưa kịp gọi tên?",
+                        "Cuối tuần rồi, mình tự thưởng cho bản thân một buổi sáng thật chậm để đi lễ chùa. Không vội vã xem đồng hồ, không cầm điện thoại liên tục. Chỉ đơn giản là bước chân trần trên nền đá mát lạnh, lắng nghe tiếng gió xào xạc qua tán lá xanh và hít căng lồng ngực bầu không khí trong lành.",
+                        "Khi đứng trên ban công nhìn ra khoảng trời rộng mở, mình chợt nhận ra: Bình an không phải là khi cuộc sống không còn sóng gió, mà là khi ta biết tạo ra một khoảng lặng nhỏ ngay trong trái tim mình. Một nụ cười nhẹ, một hơi thở sâu, mọi muộn phiền tự khắc tan biến.",
+                        "Nếu tuần này bạn thấy hơi mệt, hãy thử dành cho mình nửa buổi sáng rời xa màn hình, bước ra ngoài chạm vào thiên nhiên nhé. Bạn xứng đáng được nạp đầy năng lượng lành!"
+                    ],
+                    comments: [
+                        { author: "Minh Anh", text: "Đọc bài viết của chị mà thấy lòng dịu lại hẳn, cảm ơn chị nhiều lắm!" }
+                    ]
+                },
+                {
+                    id: "post-2",
+                    title: "5 thói quen nhỏ mỗi sáng giúp tâm trạng luôn rạng rỡ",
+                    category: "Thói Quen Tốt",
+                    emoji: "☀️",
+                    gradient: "from-amber-100 via-cream-100 to-lotus-50 dark:from-amber-900/30 dark:to-stone-800",
+                    date: "14 Tháng 11, 2026",
+                    readTime: "4 phút đọc",
+                    likes: 56,
+                    excerpt: "Cách chúng ta bắt đầu 30 phút đầu tiên của ngày mới thường quyết định sắc màu của cả ngày hôm đó. Cùng mình thử 5 thói quen cực kỳ dễ thương này nhé!",
+                    content: [
+                        "Mình từng có thói quen vừa mở mắt đã vớ lấy điện thoại đọc tin tức, và thế là cả buổi sáng cứ trôi qua trong cảm giác vội vàng, căng thẳng.",
+                        "Từ ngày thay đổi bằng 5 việc nhỏ xíu này, mình thấy mỗi sáng đều tràn ngập niềm vui:",
+                        "1. Uống một ly nước ấm ngay khi thức dậy để đánh thức cơ thể một cách dịu dàng nhất.\n2. Mở rèm cửa đón ánh nắng tự nhiên và vươn vai thật thoải mái.\n3. Nhìn vào gương và nở một nụ cười với chính mình, thầm nhủ: 'Hôm nay sẽ là một ngày thật tốt lành!'.\n4. Viết ra 1 điều nhỏ bé mình thấy biết ơn.\n5. Nghe một bản nhạc không lời nhẹ nhàng trong lúc chuẩn bị bữa sáng.",
+                        "Không cần thay đổi điều gì quá lớn lao, chỉ cần yêu thương bản thân từ những thói quen nhỏ nhất mỗi ngày, năng lượng tích cực sẽ tự nhiên lan tỏa."
+                    ],
+                    comments: [
+                        { author: "Thảo Vy", text: "Mình rất thích thói quen mỉm cười trước gương, nghe đơn giản mà hiệu quả thật!" }
+                    ]
+                },
+                {
+                    id: "post-3",
+                    title: "Học cách ôm lấy bản thân trong những ngày chưa trọn vẹn",
+                    category: "Chữa Lành",
+                    emoji: "🦋",
+                    gradient: "from-emerald-100 via-teal-50 to-cream-50 dark:from-emerald-900/30 dark:to-stone-800",
+                    date: "09 Tháng 11, 2026",
+                    readTime: "3 phút đọc",
+                    likes: 64,
+                    excerpt: "Tích cực không có nghĩa là lúc nào cũng phải gồng mình vui vẻ. Đôi khi, sự mạnh mẽ lớn nhất lại nằm ở việc cho phép mình nghỉ ngơi và tự vỗ về trái tim.",
+                    content: [
+                        "Chúng ta thường rất dễ dàng động viên một người bạn khi họ buồn, nhưng lại hay quá khắt khe với chính mình mỗi khi làm điều gì đó chưa như ý.",
+                        "Mình đã từng tự trách bản thân rất nhiều trong những ngày tụt năng lượng. Nhưng rồi mình hiểu ra: Cây cối cũng có mùa rụng lá để dưỡng sức cho mùa xuân đâm chồi, huống hồ là con người chúng ta.",
+                        "Khi thấy lòng chùng xuống, đừng ép mình phải cười ngay lập tức. Hãy pha một tách trà hoa cúc, nghe tiếng mưa rơi, hoặc đơn giản là ngủ một giấc thật sâu. Hãy nói với bản thân rằng: 'Cảm ơn cậu vì thời gian qua đã cố gắng rất nhiều rồi.'",
+                        "Chỉ cần bạn giữ được sự dịu dàng với chính mình, ánh nắng nhất định sẽ sớm quay trở lại."
+                    ],
+                    comments: []
+                },
+                {
+                    id: "post-4",
+                    title: "Phép màu mang tên 'Lòng Biết Ơn' trong những điều giản dị",
+                    category: "Biết Ơn",
+                    emoji: "🌿",
+                    gradient: "from-rose-100 via-amber-50 to-emerald-50 dark:from-rose-900/30 dark:to-stone-800",
+                    date: "02 Tháng 11, 2026",
+                    readTime: "3 phút đọc",
+                    likes: 39,
+                    excerpt: "Khi ta bắt đầu đếm những điều tốt đẹp mình đang có thay vì những điều còn thiếu, cuộc sống bỗng trở nên đủ đầy và ấm áp đến lạ kỳ.",
+                    content: [
+                        "Có một câu nói mình luôn ghi nhớ: 'Không phải người hạnh phúc mới biết ơn, mà chính người biết ơn mới luôn hạnh phúc.'",
+                        "Mỗi tối trước khi đi ngủ, mình thường dành 2 phút nghĩ lại 3 điều nhỏ bé trong ngày: một lời hỏi thăm ấm áp từ gia đình, một bữa cơm ngon miệng, hay đơn giản là bầu trời chiều nay có áng mây màu hồng rất đẹp.",
+                        "Kỳ diệu là càng thực hành lòng biết ơn, đôi mắt mình càng tinh tế hơn trong việc nhìn thấy vẻ đẹp của cuộc sống. Những bực dọc nhỏ nhặt dần lùi xa, nhường chỗ cho sự thanh thản và niềm vui trong trẻo.",
+                        "Bạn hãy thử thả một điều biết ơn vào chiếc Lọ Biết Ơn ở bên dưới cùng mình hôm nay nhé!"
+                    ],
+                    comments: []
+                }
+            ];
+
+            const DEFAULT_GRATITUDES = [
+                { id: "g-1", text: "Biết ơn một buổi sáng trời trong xanh và cơ thể khỏe mạnh để bắt đầu ngày mới.", date: "Hôm nay", color: "bg-lotus-50 dark:bg-lotus-900/20 border-lotus-200 dark:border-lotus-800/60" },
+                { id: "g-2", text: "Biết ơn những người thân yêu luôn lắng nghe và mang lại tiếng cười ấm áp.", date: "Hôm qua", color: "bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800/60" },
+                { id: "g-3", text: "Biết ơn chính mình vì đã luôn kiên nhẫn, dịu dàng và không ngừng học hỏi mỗi ngày.", date: "2 ngày trước", color: "bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800/60" }
+            ];
+
+            const GRATITUDE_COLORS = [
+                "bg-lotus-50 dark:bg-lotus-900/20 border-lotus-200 dark:border-lotus-800/60",
+                "bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800/60",
+                "bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800/60",
+                "bg-sky-50 dark:bg-sky-900/20 border-sky-200 dark:border-sky-800/60"
+            ];
+
+            /* ---------------------------------------------------------
+             * 2. QUẢN LÝ TRẠNG THÁI (STATE) & LƯU TRỮ AN TOÀN
+             * --------------------------------------------------------- */
+            let state = {
+                quoteIndex: 0,
+                quoteHearts: 128,
+                selectedCategory: "Tất cả",
+                searchQuery: "",
+                activeArticleId: null,
+                posts: [],
+                gratitudes: []
+            };
+
+            // Đọc dữ liệu an toàn từ localStorage
+            function loadFromStorage(key, fallback) {
+                try {
+                    const raw = localStorage.getItem(key);
+                    return raw ? JSON.parse(raw) : fallback;
+                } catch (err) {
+                    console.warn("Không thể đọc dữ liệu lưu trữ:", err);
+                    return fallback;
+                }
+            }
+
+            // Lưu dữ liệu an toàn vào localStorage
+            function saveToStorage(key, data) {
+                try {
+                    localStorage.setItem(key, JSON.stringify(data));
+                } catch (err) {
+                    console.warn("Không thể lưu dữ liệu:", err);
+                }
+            }
+
+            /* ---------------------------------------------------------
+             * 3. HỆ THỐNG THÔNG BÁO TOAST (KHÔNG DÙNG ALERT)
+             * --------------------------------------------------------- */
+            function showToast(message, emoji = "✨") {
+                const container = document.getElementById("toast-container");
+                if (!container) return;
+
+                const toast = document.createElement("div");
+                toast.className = "pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-2xl bg-stone-900 dark:bg-white text-white dark:text-stone-900 text-sm font-medium shadow-xl transition-all duration-300 translate-y-2 opacity-0";
+                toast.innerHTML = `<span class="text-base shrink-0">${emoji}</span><span>${escapeHtml(message)}</span>`;
+
+                container.appendChild(toast);
+
+                // Hiệu ứng hiện mượt
+                requestAnimationFrame(() => {
+                    toast.classList.remove("translate-y-2", "opacity-0");
+                });
+
+                // Tự ẩn sau 3 giây
+                setTimeout(() => {
+                    toast.classList.add("translate-y-2", "opacity-0");
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+
+            // Hàm chống XSS cơ bản cho văn bản người dùng nhập
+            function escapeHtml(text) {
+                const div = document.createElement("div");
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            // Hàm sao chép văn bản tương thích tốt trong mọi môi trường iframe
+            function copyTextFallback(text) {
+                try {
+                    const textarea = document.createElement("textarea");
+                    textarea.value = text;
+                    textarea.style.position = "fixed";
+                    textarea.style.top = "-9999px";
+                    document.body.appendChild(textarea);
+                    textarea.focus();
+                    textarea.select();
+                    const ok = document.execCommand("copy");
+                    document.body.removeChild(textarea);
+                    if (ok) {
+                        showToast("Đã sao chép thông điệp tích cực!", "📋");
+                    } else {
+                        showToast("Không thể sao chép tự động, bạn thử bôi đen nhé!", "💛");
+                    }
+                } catch (err) {
+                    showToast("Không thể sao chép lúc này.", "💛");
+                }
+            }
+
+            /* ---------------------------------------------------------
+             * 4. LỜI CHÀO THEO GIỜ & CHẾ ĐỘ SÁNG/TỐI
+             * --------------------------------------------------------- */
+            function initGreetingAndYear() {
+                const yearEl = document.getElementById("current-year");
+                if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+                const hour = new Date().getHours();
+                let greeting = "Chào bạn đến với khu vườn nhỏ của sự bình an";
+                if (hour >= 5 && hour < 11) {
+                    greeting = "Chào buổi sáng an lành — Chúc bạn một ngày rạng rỡ ☀️";
+                } else if (hour >= 11 && hour < 14) {
+                    greeting = "Chào buổi trưa dịu êm — Đừng quên nghỉ ngơi chút nhé 🍵";
+                } else if (hour >= 14 && hour < 18) {
+                    greeting = "Chào buổi chiều bình yên — Giữ nụ cười thật tươi nhé 🌸";
+                } else {
+                    greeting = "Chào buổi tối ấm áp — Thả lỏng tâm trí và thư giãn nhé 🌙";
+                }
+                const greetingEl = document.getElementById("dynamic-greeting");
+                if (greetingEl) greetingEl.textContent = greeting;
+            }
+
+            function initThemeToggle() {
+                const savedTheme = loadFromStorage("an_nhien_theme", "light");
+                if (savedTheme === "dark") {
+                    document.documentElement.classList.add("dark");
+                }
+
+                const toggleBtn = document.getElementById("theme-toggle-btn");
+                if (toggleBtn) {
+                    toggleBtn.addEventListener("click", () => {
+                        const isDark = document.documentElement.classList.toggle("dark");
+                        saveToStorage("an_nhien_theme", isDark ? "dark" : "light");
+                        showToast(isDark ? "Đã chuyển sang chế độ Đêm An Yên" : "Đã chuyển sang chế độ Ngày Nắng Ấm", isDark ? "🌙" : "☀️");
+                    });
+                }
+            }
+
+            /* ---------------------------------------------------------
+             * 5. TẢI ẢNH CÁ NHÂN TRỰC TIẾP TRONG TRÌNH DUYỆT
+             * --------------------------------------------------------- */
+            function initPhotoUploaders() {
+                const bindUpload = (inputId, imgId, label) => {
+                    const input = document.getElementById(inputId);
+                    const img = document.getElementById(imgId);
+                    if (!input || !img) return;
+
+                    input.addEventListener("change", (e) => {
+                        try {
+                            const file = e.target.files && e.target.files[0];
+                            if (!file) return;
+                            const objectUrl = URL.createObjectURL(file);
+                            img.src = objectUrl;
+                            showToast(`Đã cập nhật ${label} thành công!`, "📸");
+                        } catch (err) {
+                            showToast("Có lỗi nhỏ khi hiển thị ảnh, bạn thử chọn lại nhé.", "🌸");
+                        }
+                    });
+                };
+
+                bindUpload("hero-photo-upload", "hero-photo", "ảnh chân dung trang chủ");
+                bindUpload("about-photo-upload", "about-photo", "ảnh giới thiệu bản thân");
+            }
+
+            /* ---------------------------------------------------------
+             * 6. THẺ THÔNG ĐIỆP NĂNG LƯỢNG MỖI NGÀY
+             * --------------------------------------------------------- */
+            function renderQuote() {
+                const quote = POSITIVE_QUOTES[state.quoteIndex];
+                const box = document.getElementById("quote-box");
+                const textEl = document.getElementById("daily-quote-text");
+                const subEl = document.getElementById("daily-quote-sub");
+                const numEl = document.getElementById("quote-number");
+                const heartEl = document.getElementById("heart-quote-count");
+
+                if (!quote || !textEl || !subEl) return;
+
+                box.classList.add("opacity-0");
+                setTimeout(() => {
+                    textEl.textContent = quote.text;
+                    subEl.textContent = quote.sub;
+                    if (numEl) numEl.textContent = `Thẻ số #0${state.quoteIndex + 1}`;
+                    if (heartEl) heartEl.textContent = state.quoteHearts;
+                    box.classList.remove("opacity-0");
+                }, 180);
+            }
+
+            function initQuoteSection() {
+                state.quoteHearts = loadFromStorage("an_nhien_quote_hearts", 128);
+                renderQuote();
+
+                document.getElementById("new-quote-btn")?.addEventListener("click", () => {
+                    let next = Math.floor(Math.random() * POSITIVE_QUOTES.length);
+                    if (next === state.quoteIndex) {
+                        next = (state.quoteIndex + 1) % POSITIVE_QUOTES.length;
+                    }
+                    state.quoteIndex = next;
+                    renderQuote();
+                    showToast("Đã rút một thông điệp tích cực mới cho bạn!", "🌟");
+                });
+
+                document.getElementById("copy-quote-btn")?.addEventListener("click", () => {
+                    const q = POSITIVE_QUOTES[state.quoteIndex];
+                    copyTextFallback(`${q.text}\n${q.sub}`);
+                });
+
+                document.getElementById("heart-quote-btn")?.addEventListener("click", () => {
+                    state.quoteHearts += 1;
+                    saveToStorage("an_nhien_quote_hearts", state.quoteHearts);
+                    const heartEl = document.getElementById("heart-quote-count");
+                    if (heartEl) heartEl.textContent = state.quoteHearts;
+                    showToast("Cảm ơn bạn đã lan tỏa yêu thương!", "❤️");
+                });
+            }
+
+            /* ---------------------------------------------------------
+             * 7. TIỆN ÍCH 1 PHÚT HÍT THỞ CHÁNH NIỆM (4 - 4 - 4)
+             * --------------------------------------------------------- */
+            function initBreathingWidget() {
+                const btn = document.getElementById("toggle-breath-btn");
+                const outer = document.getElementById("breath-ring-outer");
+                const inner = document.getElementById("breath-ring-inner");
+                const label = document.getElementById("breath-label");
+                const timerEl = document.getElementById("breath-timer");
+
+                if (!btn || !outer || !inner || !label || !timerEl) return;
+
+                let isRunning = false;
+                let phaseInterval = null;
+                let countInterval = null;
+
+                const phases = [
+                    { name: "Hít vào...", outerScale: "scale-110", innerScale: "scale-110" },
+                    { name: "Giữ nhẹ...", outerScale: "scale-110", innerScale: "scale-105" },
+                    { name: "Thở ra...", outerScale: "scale-75", innerScale: "scale-90" }
+                ];
+
+                function stopBreathing() {
+                    isRunning = false;
+                    clearInterval(phaseInterval);
+                    clearInterval(countInterval);
+                    outer.className = "absolute inset-0 rounded-full bg-emerald-200/40 dark:bg-emerald-500/20 transition-transform duration-[4000ms] ease-in-out scale-75";
+                    inner.className = "relative w-24 h-24 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 shadow-lg shadow-emerald-300/40 flex flex-col items-center justify-center text-white transition-transform duration-[4000ms] ease-in-out scale-90";
+                    label.textContent = "Sẵn sàng";
+                    timerEl.textContent = "4 - 4 - 4";
+                    btn.textContent = "Bắt đầu hít thở cùng mình";
+                }
+
+                function runPhase(index) {
+                    const p = phases[index];
+                    label.textContent = p.name;
+                    outer.className = `absolute inset-0 rounded-full bg-emerald-200/50 dark:bg-emerald-500/25 transition-transform duration-[4000ms] ease-in-out ${p.outerScale}`;
+                    inner.className = `relative w-24 h-24 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 shadow-lg shadow-emerald-300/40 flex flex-col items-center justify-center text-white transition-transform duration-[4000ms] ease-in-out ${p.innerScale}`;
+
+                    let sec = 4;
+                    timerEl.textContent = `${sec} giây`;
+                    clearInterval(countInterval);
+                    countInterval = setInterval(() => {
+                        sec -= 1;
+                        if (sec >= 1) {
+                            timerEl.textContent = `${sec} giây`;
+                        }
+                    }, 1000);
+                }
+
+                btn.addEventListener("click", () => {
+                    if (isRunning) {
+                        stopBreathing();
+                        showToast("Bạn vừa có phút giây thư giãn thật tuyệt!", "🍃");
+                        return;
+                    }
+
+                    isRunning = true;
+                    btn.textContent = "Dừng lại";
+                    let phaseIdx = 0;
+                    runPhase(phaseIdx);
+
+                    phaseInterval = setInterval(() => {
+                        phaseIdx = (phaseIdx + 1) % phases.length;
+                        runPhase(phaseIdx);
+                    }, 4000);
+                });
+            }
+
+            /* ---------------------------------------------------------
+             * 8. HIỂN THỊ, LỌC, ĐỌC & ĐĂNG BÀI VIẾT BLOG
+             * --------------------------------------------------------- */
+            function renderPosts() {
+                const grid = document.getElementById("posts-grid");
+                const empty = document.getElementById("posts-empty");
+                if (!grid || !empty) return;
+
+                const query = state.searchQuery.trim().toLowerCase();
+                const filtered = state.posts.filter((post) => {
+                    const matchCat = state.selectedCategory === "Tất cả" || post.category === state.selectedCategory;
+                    const matchQuery = !query ||
+                        post.title.toLowerCase().includes(query) ||
+                        post.excerpt.toLowerCase().includes(query) ||
+                        post.category.toLowerCase().includes(query);
+                    return matchCat && matchQuery;
+                });
+
+                grid.innerHTML = "";
+
+                if (filtered.length === 0) {
+                    empty.classList.remove("hidden");
+                    return;
+                }
+                empty.classList.add("hidden");
+
+                filtered.forEach((post) => {
+                    const card = document.createElement("article");
+                    card.className = "group bg-white dark:bg-stone-900 rounded-3xl overflow-hidden border border-lotus-100 dark:border-stone-800 shadow-sm hover:shadow-xl hover:shadow-lotus-200/30 dark:hover:shadow-none transition-all duration-300 hover:-translate-y-1 flex flex-col cursor-pointer";
+                    card.setAttribute("data-post-id", post.id);
+
+                    card.innerHTML = `
+                        <div class="h-44 bg-gradient-to-br ${post.gradient} p-6 flex flex-col justify-between relative overflow-hidden">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-full bg-white/85 dark:bg-stone-900/80 backdrop-blur-sm text-lotus-600 dark:text-lotus-300 text-xs font-semibold shadow-sm">${escapeHtml(post.category)}</span>
+                                <span class="text-xs font-medium text-stone-600 dark:text-stone-300 bg-white/60 dark:bg-stone-900/60 px-2.5 py-1 rounded-full">${escapeHtml(post.readTime)}</span>
+                            </div>
+                            <div class="text-5xl transform group-hover:scale-110 transition-transform duration-300 self-end drop-shadow-sm">${escapeHtml(post.emoji)}</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <div class="text-xs text-stone-400 dark:text-stone-500 mb-2">${escapeHtml(post.date)}</div>
+                                <h3 class="text-lg font-bold text-stone-800 dark:text-stone-100 group-hover:text-lotus-600 dark:group-hover:text-lotus-300 transition-colors leading-snug">${escapeHtml(post.title)}</h3>
+                                <p class="mt-2.5 text-sm text-stone-600 dark:text-stone-400 line-clamp-3 leading-relaxed">${escapeHtml(post.excerpt)}</p>
+                            </div>
+                            <div class="pt-4 border-t border-lotus-50 dark:border-stone-800 flex items-center justify-between text-xs font-semibold">
+                                <span class="text-lotus-600 dark:text-lotus-300 inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                                    Đọc tiếp <span>→</span>
+                                </span>
+                                <span class="text-stone-500 dark:text-stone-400 flex items-center gap-1">
+                                    ❤️ ${post.likes}
+                                </span>
+                            </div>
+                        </div>
+                    `;
+
+                    card.addEventListener("click", () => openArticleModal(post.id));
+                    grid.appendChild(card);
+                });
+            }
+
+            function openArticleModal(postId) {
+                const post = state.posts.find((p) => p.id === postId);
+                if (!post) return;
+
+                state.activeArticleId = postId;
+
+                document.getElementById("modal-article-category").textContent = post.category;
+                document.getElementById("modal-article-title").textContent = post.title;
+                document.getElementById("modal-article-date").textContent = post.date;
+                document.getElementById("modal-article-readtime").textContent = post.readTime;
+                document.getElementById("modal-like-count").textContent = post.likes;
+
+                const banner = document.getElementById("modal-article-banner");
+                banner.innerHTML = `
+                    <div class="h-36 sm:h-44 rounded-2xl bg-gradient-to-br ${post.gradient} flex items-center justify-center">
+                        <span class="text-6xl">${escapeHtml(post.emoji)}</span>
+                    </div>
+                `;
+
+                const contentContainer = document.getElementById("modal-article-content");
+                contentContainer.innerHTML = post.content
+                    .map((para) => `<p class="whitespace-pre-line">${escapeHtml(para)}</p>`)
+                    .join("");
+
+                renderComments(post);
+
+                const modal = document.getElementById("article-modal");
+                modal.classList.remove("hidden");
+                document.body.classList.add("overflow-hidden");
+            }
+
+            function renderComments(post) {
+                const list = document.getElementById("modal-comments-list");
+                if (!list) return;
+
+                if (!post.comments || post.comments.length === 0) {
+                    list.innerHTML = `<p class="text-xs text-stone-400 italic">Hãy là người đầu tiên gửi lời nhắn ấm áp cho bài viết này nhé 🌸</p>`;
+                    return;
+                }
+
+                list.innerHTML = post.comments
+                    .map((c) => `
+                        <div class="p-3.5 rounded-2xl bg-cream-50 dark:bg-stone-800/80 border border-lotus-100 dark:border-stone-700">
+                            <div class="text-xs font-bold text-lotus-600 dark:text-lotus-300">${escapeHtml(c.author)}</div>
+                            <div class="text-sm text-stone-700 dark:text-stone-300 mt-1">${escapeHtml(c.text)}</div>
+                        </div>
+                    `)
+                    .join("");
+            }
+
+            function closeArticleModal() {
+                document.getElementById("article-modal").classList.add("hidden");
+                document.body.classList.remove("overflow-hidden");
+                state.activeArticleId = null;
+            }
+
+            function initBlogFeatures() {
+                state.posts = loadFromStorage("an_nhien_posts", DEFAULT_POSTS);
+                renderPosts();
+
+                // Lọc theo danh mục
+                const pills = document.querySelectorAll(".category-pill");
+                pills.forEach((pill) => {
+                    pill.addEventListener("click", () => {
+                        state.selectedCategory = pill.getAttribute("data-category");
+                        pills.forEach((p) => {
+                            const active = p === pill;
+                            p.className = active
+                                ? "category-pill px-4 py-2 rounded-full text-sm font-semibold bg-lotus-500 text-white shadow-sm transition-all"
+                                : "category-pill px-4 py-2 rounded-full text-sm font-medium bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-300 border border-lotus-200 dark:border-stone-700 hover:bg-lotus-50 dark:hover:bg-stone-800 transition-all";
+                        });
+                        renderPosts();
+                    });
+                });
+
+                // Tìm kiếm trực tiếp
+                document.getElementById("search-posts-input")?.addEventListener("input", (e) => {
+                    state.searchQuery = e.target.value;
+                    renderPosts();
+                });
+
+                // Đóng modal đọc bài
+                document.getElementById("close-article-modal")?.addEventListener("click", closeArticleModal);
+                document.getElementById("article-modal")?.addEventListener("click", (e) => {
+                    if (e.target.id === "article-modal") closeArticleModal();
+                });
+
+                // Thả tim bài viết
+                document.getElementById("modal-like-btn")?.addEventListener("click", () => {
+                    const post = state.posts.find((p) => p.id === state.activeArticleId);
+                    if (!post) return;
+                    post.likes += 1;
+                    saveToStorage("an_nhien_posts", state.posts);
+                    document.getElementById("modal-like-count").textContent = post.likes;
+                    renderPosts();
+                    showToast("Cảm ơn trái tim ấm áp của bạn!", "❤️");
+                });
+
+                // Chia sẻ trích dẫn bài viết
+                document.getElementById("modal-share-btn")?.addEventListener("click", () => {
+                    const post = state.posts.find((p) => p.id === state.activeArticleId);
+                    if (!post) return;
+                    copyTextFallback(`🌸 ${post.title}\n"${post.excerpt}" — Đọc tại Blog Góc An Nhiên`);
+                });
+
+                // Gửi bình luận
+                document.getElementById("comment-form")?.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const post = state.posts.find((p) => p.id === state.activeArticleId);
+                    if (!post) return;
+
+                    const authorInput = document.getElementById("comment-author");
+                    const textInput = document.getElementById("comment-text");
+                    const author = authorInput.value.trim();
+                    const text = textInput.value.trim();
+                    if (!author || !text) return;
+
+                    post.comments = post.comments || [];
+                    post.comments.unshift({ author, text });
+                    saveToStorage("an_nhien_posts", state.posts);
+                    renderComments(post);
+
+                    authorInput.value = "";
+                    textInput.value = "";
+                    showToast("Đã gửi lời nhắn yêu thương của bạn!", "💌");
+                });
+
+                // Mở/Đóng modal viết bài mới
+                const composeModal = document.getElementById("compose-modal");
+                const openCompose = () => {
+                    composeModal.classList.remove("hidden");
+                    document.body.classList.add("overflow-hidden");
+                    document.getElementById("mobile-menu")?.classList.add("hidden");
+                };
+                const closeCompose = () => {
+                    composeModal.classList.add("hidden");
+                    document.body.classList.remove("overflow-hidden");
+                };
+
+                document.getElementById("open-compose-btn")?.addEventListener("click", openCompose);
+                document.getElementById("open-compose-mobile-btn")?.addEventListener("click", openCompose);
+                document.getElementById("close-compose-modal")?.addEventListener("click", closeCompose);
+                document.getElementById("cancel-compose-btn")?.addEventListener("click", closeCompose);
+                composeModal?.addEventListener("click", (e) => {
+                    if (e.target.id === "compose-modal") closeCompose();
+                });
+
+                // Xử lý đăng bài viết mới
+                document.getElementById("compose-form")?.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const title = document.getElementById("post-title-input").value.trim();
+                    const category = document.getElementById("post-category-input").value;
+                    const emoji = document.getElementById("post-emoji-input").value;
+                    const rawContent = document.getElementById("post-content-input").value.trim();
+
+                    if (!title || !rawContent) return;
+
+                    const paragraphs = rawContent.split(/\n+/).map((s) => s.trim()).filter(Boolean);
+                    const excerpt = paragraphs[0].length > 140 ? paragraphs[0].slice(0, 140) + "..." : paragraphs[0];
+
+                    const now = new Date();
+                    const dateStr = `${now.getDate()} Tháng ${now.getMonth() + 1}, ${now.getFullYear()}`;
+                    const gradients = [
+                        "from-lotus-100 via-rose-50 to-amber-50 dark:from-lotus-900/40 dark:to-stone-800",
+                        "from-amber-100 via-cream-100 to-lotus-50 dark:from-amber-900/30 dark:to-stone-800",
+                        "from-emerald-100 via-teal-50 to-cream-50 dark:from-emerald-900/30 dark:to-stone-800"
+                    ];
+
+                    const newPost = {
+                        id: "post-" + Date.now(),
+                        title,
+                        category,
+                        emoji,
+                        gradient: gradients[Math.floor(Math.random() * gradients.length)],
+                        date: dateStr,
+                        readTime: `${Math.max(1, Math.ceil(rawContent.split(/\s+/).length / 150))} phút đọc`,
+                        likes: 1,
+                        excerpt,
+                        content: paragraphs,
+                        comments: []
+                    };
+
+                    state.posts.unshift(newPost);
+                    saveToStorage("an_nhien_posts", state.posts);
+                    renderPosts();
+
+                    document.getElementById("compose-form").reset();
+                    closeCompose();
+                    showToast("Bài viết mới của bạn đã được đăng thành công!", "🎉");
+                    document.getElementById("bai-viet")?.scrollIntoView({ behavior: "smooth" });
+                });
+            }
+
+            /* ---------------------------------------------------------
+             * 9. LỌ BIẾT ƠN MỖI NGÀY
+             * --------------------------------------------------------- */
+            function renderGratitudes() {
+                const list = document.getElementById("gratitude-list");
+                if (!list) return;
+
+                list.innerHTML = "";
+                state.gratitudes.forEach((item) => {
+                    const card = document.createElement("div");
+                    card.className = `p-5 rounded-3xl border shadow-sm flex flex-col justify-between gap-4 transition-transform hover:-translate-y-0.5 ${item.color}`;
+                    card.innerHTML = `
+                        <p class="text-sm sm:text-base text-stone-700 dark:text-stone-200 leading-relaxed font-medium">“${escapeHtml(item.text)}”</p>
+                        <div class="flex items-center justify-between text-xs text-stone-500 dark:text-stone-400">
+                            <span>💛 ${escapeHtml(item.date)}</span>
+                            <button type="button" data-delete-id="${item.id}" class="delete-gratitude-btn px-2 py-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 text-stone-400 hover:text-rose-500 transition-colors" title="Xóa ghi chú này">Xóa</button>
+                        </div>
+                    `;
+                    list.appendChild(card);
+                });
+
+                // Gắn sự kiện xóa từng mẩu giấy
+                list.querySelectorAll(".delete-gratitude-btn").forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        const id = btn.getAttribute("data-delete-id");
+                        state.gratitudes = state.gratitudes.filter((g) => g.id !== id);
+                        saveToStorage("an_nhien_gratitudes", state.gratitudes);
+                        renderGratitudes();
+                        showToast("Đã cất gọn mẩu giấy biết ơn.", "🌿");
+                    });
+                });
+            }
+
+            function initGratitudeSection() {
+                state.gratitudes = loadFromStorage("an_nhien_gratitudes", DEFAULT_GRATITUDES);
+                renderGratitudes();
+
+                document.getElementById("gratitude-form")?.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const input = document.getElementById("gratitude-input");
+                    const text = input.value.trim();
+                    if (!text) return;
+
+                    const color = GRATITUDE_COLORS[Math.floor(Math.random() * GRATITUDE_COLORS.length)];
+                    state.gratitudes.unshift({
+                        id: "g-" + Date.now(),
+                        text,
+                        date: "Vừa xong",
+                        color
+                    });
+                    saveToStorage("an_nhien_gratitudes", state.gratitudes);
+                    renderGratitudes();
+
+                    input.value = "";
+                    showToast("Tuyệt vời! Một hạt mầm biết ơn vừa được gieo xuống.", "💛");
+                });
+            }
+
+            /* ---------------------------------------------------------
+             * 10. MENU ĐIỆN THOẠI & FORM ĐĂNG KÝ NHẬN THƯ
+             * --------------------------------------------------------- */
+            function initMiscInteractions() {
+                const mobileBtn = document.getElementById("mobile-menu-btn");
+                const mobileMenu = document.getElementById("mobile-menu");
+
+                mobileBtn?.addEventListener("click", () => {
+                    mobileMenu?.classList.toggle("hidden");
+                });
+
+                document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+                    link.addEventListener("click", () => {
+                        mobileMenu?.classList.add("hidden");
+                    });
+                });
+
+                document.getElementById("newsletter-form")?.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const emailInput = document.getElementById("newsletter-email");
+                    if (!emailInput.value.trim()) return;
+                    emailInput.value = "";
+                    showToast("Cảm ơn bạn đã kết nối! Chúc bạn luôn an yên và rạng rỡ.", "💌");
+                });
+
+                // Đóng modal khi nhấn phím Escape
+                document.addEventListener("keydown", (e) => {
+                    if (e.key === "Escape") {
+                        closeArticleModal();
+                        document.getElementById("compose-modal")?.classList.add("hidden");
+                        document.body.classList.remove("overflow-hidden");
+                    }
+                });
+            }
+
+            /* ---------------------------------------------------------
+             * KHỞI CHẠY ỨNG DỤNG KHI TRANG TẢI XONG
+             * --------------------------------------------------------- */
+            window.addEventListener("DOMContentLoaded", () => {
+                try {
+                    initGreetingAndYear();
+                    initThemeToggle();
+                    initPhotoUploaders();
+                    initQuoteSection();
+                    initBreathingWidget();
+                    initBlogFeatures();
+                    initGratitudeSection();
+                    initMiscInteractions();
+                } catch (err) {
+                    console.error("Lỗi khởi tạo blog:", err);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
